@@ -1,0 +1,25 @@
+name: Python Matrix Operations
+ 
+on:
+  workflow_dispatch:
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.12, 3.9, 3.8]
+   
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+     
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+   
+ 
+     
+    - name: Run Python script
+      run: python file.py
